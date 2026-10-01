@@ -31,7 +31,7 @@ export default function Page() {
         @keyframes float { 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-14px)} }
         @keyframes wave { 0%,100%{transform:rotate(-15deg)} 25%{transform:rotate(20deg)} 50%{transform:rotate(-10deg)} 75%{transform:rotate(25deg)} }
         @keyframes blink { 0%,90%,100%{transform:scaleY(1)} 92%,94%{transform:scaleY(0.1)} }
-      \`}</style>
+      \`}} />
 
       <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200/70">
         <div className="max-w-[1280px] mx-auto px-5 md:px-8 h-[72px] flex items-center justify-between">
