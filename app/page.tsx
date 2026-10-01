@@ -1,10 +1,20 @@
 import SearchBar from '@/components/SearchBar';
 import { articles } from '@/lib/articles';
 import Link from 'next/link';
+import AuthButton from '@/components/AuthButton';
 
 export default function Page() {
   return (
     <main className="max-w-7xl mx-auto px-6">
+      {/* Header جديد */}
+      <header className="flex items-center justify-between py-5 border-b border-slate-100">
+        <Link href="/" className="font-extrabold text- tracking-tight">Buhouth<span className="text-blue-600">AI</span></Link>
+        <div className="flex items-center gap-3">
+          <Link href="/articles" className="hidden md:block text-sm text-slate-600 hover:text-slate-900">الدليل</Link>
+          <AuthButton />
+        </div>
+      </header>
+
       {/* Hero */}
       <section className="py-16 md:py-24 text-center">
         <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 text-xs font-medium px-3 py-1 rounded-full mb-4">
