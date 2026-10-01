@@ -1,7 +1,8 @@
-import SearchBar from '@/components/SearchBar';
-import { articles } from '@/lib/articles';
+import SearchBar from '../components/SearchBar';
+import { articles } from '../lib/articles';
 import Link from 'next/link';
 import LoginModal from '../components/LoginModal'
+
 export default function Page() {
   return (
     <main className="max-w-7xl mx-auto px-6">
@@ -10,7 +11,7 @@ export default function Page() {
         <Link href="/" className="font-extrabold text- tracking-tight">Buhouth<span className="text-blue-600">AI</span></Link>
         <div className="flex items-center gap-3">
           <Link href="/articles" className="hidden md:block text-sm text-slate-600 hover:text-slate-900">الدليل</Link>
-          <AuthButton />
+          <LoginModal />
         </div>
       </header>
 
