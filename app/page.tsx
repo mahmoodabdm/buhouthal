@@ -1,8 +1,7 @@
 import SearchBar from '@/components/SearchBar';
 import { articles } from '@/lib/articles';
 import Link from 'next/link';
-import AuthButton from '@/components/AuthButton';
-
+import LoginModal from '../components/LoginModal'
 export default function Page() {
   return (
     <main className="max-w-7xl mx-auto px-6">
