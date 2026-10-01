@@ -1,5 +1,5 @@
 "use client"
-import { createClient } from '@/lib/supabase/client'
+import { createClient } from '../lib/supabase/client'
 
 export default function LoginModal({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) {
   if (!isOpen) return null
