@@ -31,19 +31,18 @@ export default function Page() {
       <LoginModal isOpen={open} onClose={() => setOpen(false)} />
 
       {/* الهيرو مصغر وشريط البحث بالنص */}
-      <section className="flex-1 flex flex-col items-center justify-center text-center px-6 py-10 relative">
-src="/robot_small.webp"
+      <section className="flex-1 flex flex-col items-center justify-center text-center px-6 py-8 relative z-10">
+        <img src="/robot_small.webp" alt="robot" className="absolute right-[8%] top-[10%] w-[280px] hidden lg:block animate-[float_6s_ease-in-out_infinite]" />
+
         <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 text-cyan-300 text-[10px] px-3 py-1 rounded-full mb-4">
           بحث مباشر في 250,387,000 ورقة
         </div>
 
-        {/* كتابة صغيرة */}
         <h1 className="text-3xl md:text-[42px] font-bold leading-tight">
           ابحث في أكبر<br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-400">مكتبة أكاديمية مفتوحة</span>
         </h1>
 
-        {/* شريط البحث بالنص تماما */}
         <div className="w-full max-w-xl mt-8">
           <div className="bg-white rounded-xl p-1.5 shadow-[0_0_40px_rgba(59,130,246,0.3)]">
             <SearchBar />
