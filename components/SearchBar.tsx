@@ -14,12 +14,12 @@ export default function SearchBar(){
         onChange={e=>setQ(e.target.value)}
         onKeyDown={e=>e.key==='Enter'&&go()}
         placeholder="ابحث..."
-        className="w-full bg-transparent text-black text- text-center placeholder:text-center placeholder:text-gray-400 outline-none py- pr-2 pl-"
+        className="w-full h- bg-white text-black text- text-center placeholder:text-center placeholder:text-gray-400 outline-none rounded-full pr- pl- shadow-[0_1px_6px_rgba(32,33,36,0.28)] border border-white/20"
         dir="rtl"
       />
       <button
         onClick={go}
-        className="absolute left- top- bottom- bg-[#05071a] text-white text- font-bold px-4 rounded- hover:bg-black transition"
+        className="absolute left- top- bottom- bg-[#05071a] text-white text- font-bold px-5 rounded-full hover:bg-black transition"
       >
         بحث
       </button>
