@@ -96,7 +96,7 @@ export default function Page() {
           })}
         </div>
       </section>
-      <footer className="border-t border-white/10 py-3 text-center text- text-white/40 px-6"><p>abdmazn55@gmail.com | 07700700797</p><div className="max-w- mx-auto mt-2"><AdBanner slotId="footer" label="أسفل" /></div></footer>
+      <footer className="border-t border-white/10 py-3 text-center text- text-white/40 px-6"><p>abdmazn55@gmail.com | 077007707777</p><div className="max-w- mx-auto mt-2"><AdBanner slotId="footer" label="أسفل" /></div></footer>
     </main>
   );
 }
