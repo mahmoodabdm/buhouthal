@@ -39,8 +39,8 @@ export default function Page() {
           ابحث في أكبر<br />
           <span className="text-cyan-300">مكتبة أكاديمية مفتوحة</span>
         </h1>
-        <div className="w-full max-w- mt-4">
-          <div className="bg-white rounded-lg p-1 shadow-[0_0_20px_rgba(59,130,246,0.15)]">
+       <div className="w-full max-w- mt-6">
+<div className="bg-white rounded-full p-1 shadow-[0_1px_6px_rgba(32,33,36,0.28)] border">
             <SearchBar />
           </div>
           <p className="text- text-white/30 mt-2">OpenAlex API مباشرة</p>
