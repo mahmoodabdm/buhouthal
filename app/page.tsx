@@ -32,8 +32,7 @@ export default function Page() {
 
       {/* الهيرو مصغر وشريط البحث بالنص */}
       <section className="flex-1 flex flex-col items-center justify-center text-center px-6 py-10 relative">
-        <img src="/robot.png" alt="robot" className="absolute right-[10%] top-[15%] w-[280px] hidden lg:block animate-[float_6s_ease-in-out_infinite] drop-shadow-[0_0_30px_rgba(34,211,238,0.5)]" />
-
+src="/robot_small.webp"
         <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 text-cyan-300 text-[10px] px-3 py-1 rounded-full mb-4">
           بحث مباشر في 250,387,000 ورقة
         </div>
