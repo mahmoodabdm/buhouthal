@@ -43,7 +43,6 @@ export default function Page() {
           <div className="bg-white rounded-xl p-2 shadow-[0_0_30px_rgba(59,130,246,0.2)]">
             <SearchBar />
           </div>
-          <p className="text- text-white/30 mt-2">OpenAlex API مباشرة - بدون تخزين</p>
         </div>
       </section>
 
