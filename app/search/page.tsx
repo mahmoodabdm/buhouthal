@@ -1,9 +1,9 @@
 "use client"
 import { useSearchParams } from "next/navigation"
-import { useEffect, useState } from "react"
+import { Suspense, useEffect, useState } from "react"
 import Link from "next/link"
 
-export default function SearchPage(){
+function SearchContent(){
   const q = useSearchParams().get("q") || ""
   const [data,setData]=useState<any[]>([])
   const [loading,setLoading]=useState(false)
@@ -12,13 +12,12 @@ export default function SearchPage(){
     if(!q) return
     setLoading(true)
     fetch(`https://api.openalex.org/works?search=${encodeURIComponent(q)}&per-page=20`)
-   .then(r=>r.json())
-   .then(d=>{ setData(d.results||[]); setLoading(false) })
+  .then(r=>r.json())
+  .then(d=>{ setData(d.results||[]); setLoading(false) })
   },[q])
 
   return(
-    <main className="min-h-screen bg-[#05071a] text-white p-6">
-      <Link href="/" className="text-cyan-300 text-xs underline">← رجوع للرئيسية</Link>
+    <>
       <h1 className="text-center text-sm mt-4 mb-6">نتائج البحث عن: <span className="text-cyan-300">{q}</span></h1>
       {loading && <p className="text-center text-white/50 text-xs">جاري البحث في OpenAlex...</p>}
       <div className="max-w-3xl mx-auto space-y-3">
@@ -30,6 +29,17 @@ export default function SearchPage(){
         ))}
         {!loading && data.length===0 && q && <p className="text-center text-white/30 text-xs">لا توجد نتائج</p>}
       </div>
+    </>
+  )
+}
+
+export default function SearchPage(){
+  return(
+    <main className="min-h-screen bg-[#05071a] text-white p-6">
+      <Link href="/" className="text-cyan-300 text-xs underline">← رجوع للرئيسية</Link>
+      <Suspense fallback={<p className="text-center mt-10 text-xs text-white/50">تحميل...</p>}>
+        <SearchContent />
+      </Suspense>
     </main>
   )
 }
