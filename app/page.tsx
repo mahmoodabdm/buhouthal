@@ -10,9 +10,47 @@ function SearchBarGoogle(){
   const router=useRouter()
   const go=()=>{ if(q.trim()) router.push(`/search?q=${encodeURIComponent(q.trim())}`) }
   return(
-    <div className="relative w-full">
-      <input value={q} onChange={e=>setQ(e.target.value)} onKeyDown={e=>e.key==='Enter'&&go()} placeholder="ابحث..." className="w-full h- bg-white text-black text- text-center placeholder:text-center placeholder:text-gray-500 outline-none rounded-full pr- pl- shadow-[0_1px_6px_rgba(32,33,36,0.28)] border border-gray-200" dir="rtl" />
-      <button onClick={go} className="absolute left- top- bottom- bg-[#05071a] text-white text- font-bold px-6 rounded-full hover:bg-black">بحث</button>
+    <div style={{position:'relative', width:'100%'}}>
+      <input
+        value={q}
+        onChange={e=>setQ(e.target.value)}
+        onKeyDown={e=>e.key==='Enter'&&go()}
+        placeholder="ابحث..."
+        style={{
+          width:'100%',
+          height:'46px',
+          background:'white',
+          color:'black',
+          fontSize:'14px',
+          textAlign:'center',
+          borderRadius:'9999px',
+          paddingLeft:'70px',
+          paddingRight:'70px',
+          border:'1px solid #e5e7eb',
+          boxShadow:'0 1px 6px rgba(32,33,36,0.28)',
+          outline:'none'
+        }}
+        dir="rtl"
+      />
+      <button
+        onClick={go}
+        style={{
+          position:'absolute',
+          left:'5px',
+          top:'5px',
+          bottom:'5px',
+          background:'#05071a',
+          color:'white',
+          fontSize:'12px',
+          fontWeight:'bold',
+          padding:'0 22px',
+          borderRadius:'9999px',
+          border:'none',
+          cursor:'pointer'
+        }}
+      >
+        بحث
+      </button>
     </div>
   )
 }
@@ -36,12 +74,19 @@ export default function Page() {
       </header>
       <LoginModal isOpen={open} onClose={() => setOpen(false)} />
       <div className="max-w- mx-auto w-full px-6 mt-1"><AdBanner slotId="top" label="أعلى" /></div>
+
       <section className="flex-1 flex flex-col items-center justify-center text-center px-6 py-10">
         <div className="bg-white/5 border border-white/10 text-cyan-300 text- px-2.5 py-1 rounded-full mb-3">بحث مباشر في 250,387,000 ورقة</div>
         <h1 className="text- md:text- font-bold leading-tight">ابحث في أكبر<br /><span className="text-cyan-300">مكتبة أكاديمية مفتوحة</span></h1>
-        <div className="w-full max-w- mx-auto mt-6"><SearchBarGoogle /></div>
+
+        {/* هذا هو قياس كوكل الحقيقي 584px */}
+        <div style={{width:'100%', maxWidth:'584px', margin:'24px auto 0 auto'}}>
+          <SearchBarGoogle />
+        </div>
+
         <p className="text- text-white/30 mt-2">OpenAlex API مباشرة</p>
       </section>
+
       <div className="max-w- mx-auto w-full px-6"><AdBanner slotId="middle" label="وسط" /></div>
       <section className="max-w-4xl mx-auto px-6 pb-6 w-full">
         <div className="grid grid-cols-3 md:grid-cols-6 gap-2.5">
