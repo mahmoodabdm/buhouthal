@@ -1,17 +1,11 @@
-import Link from "next/link";
-
-export default function Footer() {
-  return (
-    <footer className="w-full bg-[#0a192f] border-t border-gray-800 mt-10 py-6 text-center" dir="rtl">
-      <div className="flex justify-center gap-6 mb-3 text-sm">
-        <Link href="/privacy" className="hover:text-white text-gray-300 underline">سياسة الخصوصية</Link>
-        <Link href="/contact" className="hover:text-white text-gray-300 underline">اتصل بنا</Link>
-        <Link href="/about" className="hover:text-white text-gray-300 underline">من نحن</Link>
-      </div>
-      <p className="text-xs text-gray-500">
-        © 2026 باحث - Bahith | abdmazn55@gmail.com | 07700700797
-      </p>
-      <p className="text- text-gray-600 mt-1">سيظهر هنا AdSense</p>
-    </footer>
-  );
+export default function AboutPage(){
+ return (
+  <main className="min-h-screen bg-[#0a1931] text-white p-6" dir="rtl">
+   <div className="max-w-4xl mx-auto bg-[#112240] p-8 rounded-2xl leading-8 text-gray-300">
+    <h1 className="text-3xl font-bold text-white mb-4 text-center">من نحن</h1>
+    <p><b className="text-white">باحث - Bahith</b> هو أول محرك بحث أكاديمي عراقي يبحث مباشرة في أكثر من 250 مليون ورقة بحثية مفتوحة عبر OpenAlex.</p>
+    <p className="mt-4">هدفنا تسهيل وصول الطلبة والباحثين العراقيين والعرب للمصادر العلمية مجاناً مع أدوات ذكية: فحص الاستلال، إعادة الصياغة، وملخص البحوث.</p>
+   </div>
+  </main>
+ )
 }
