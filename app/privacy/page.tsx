@@ -1,22 +1,44 @@
 export default function PrivacyPage() {
   return (
-    <main className="min-h-screen bg-[#0a1931] text-white p-6" dir="rtl">
-      <div className="max-w-4xl mx-auto bg-[#112240] p-8 rounded-2xl shadow-lg">
-        <h1 className="text-3xl font-bold mb-6 text-center">سياسة الخصوصية</h1>
-        <div className="space-y-6 text-gray-300 leading-8">
-          <p>مرحباً بك في موقع <b className="text-white">باحث - Bahith</b> على الرابط buhouthal.vercel.app</p>
-          
-          <h2 className="text-xl font-bold text-white">1. المعلومات التي نجمعها</h2>
-          <p>نحن لا نجمع بيانات شخصية. نستخدم OpenAlex API للبحث الأكاديمي المفتوح.</p>
+    <main className="min-h-screen bg-[#05071a] text-white p-6" dir="rtl">
+      <div className="max-w-4xl mx-auto bg-white/[0.06] border border-white/10 p-8 md:p-10 rounded-2xl">
+        <h1 className="text-3xl font-bold mb-2 text-center">سياسة الخصوصية لـ BuhouthAI</h1>
+        <p className="text-center text-white/40 text-sm mb-8">آخر تحديث: 3 أكتوبر 2026</p>
 
-          <h2 className="text-xl font-bold text-white">2. ملفات تعريف الارتباط</h2>
-          <p>نستخدم Google AdSense لعرض الإعلانات وقد تستخدم Google ملفات Cookies لتحسين تجربة الإعلانات.</p>
+        <div className="space-y-8 text-gray-300 leading-8 text-">
+          <p>في <b className="text-white">BuhouthAI - باحث</b> (buhouthal.vercel.app)، خصوصية زوارنا مهمة جداً لنا. توضح هذه الوثيقة أنواع المعلومات التي نجمعها وكيفية استخدامها. باستخدامك للموقع فإنك توافق على هذه السياسة.</p>
 
-          <h2 className="text-xl font-bold text-white">3. المحتوى الخارجي</h2>
-          <p>نتائج البحث من مصادر أكاديمية مفتوحة، نحن غير مسؤولين عن محتواها.</p>
+          <h2 className="text-xl font-bold text-white mt-8">1. المعلومات التي نجمعها</h2>
+          <p>موقعنا هو محرك بحث أكاديمي يعتمد على واجهة برمجة التطبيقات المفتوحة OpenAlex. نحن لا نطلب منك إنشاء حساب ولا نجمع اسمك الحقيقي أو عنوانك عند استخدام البحث. ما نجمعه تلقائياً هو: ملفات السجل (IP، نوع المتصفح، التاريخ والوقت، الصفحات التي زرتها) وهي إجراء اعتيادي في جميع المواقع لتحليل الأداء وتحسين الخدمة.</p>
 
-          <h2 className="text-xl font-bold text-white">4. اتصل بنا</h2>
-          <p>abdmazn55@gmail.com - 077007007777</p>
+          <h2 className="text-xl font-bold text-white">2. ملفات تعريف الارتباط (Cookies)</h2>
+          <p>مثل أي موقع آخر، يستخدم BuhouthAI ملفات تعريف الارتباط لتخزين تفضيلات الزائر وتحسين تجربة المستخدم. هذه الملفات لا تحتوي على معلومات شخصية حساسة.</p>
+
+          <h2 className="text-xl font-bold text-white">3. إعلانات Google AdSense و DART</h2>
+          <p>نستخدم شركة إعلان طرف ثالث Google AdSense لعرض الإعلانات. تستخدم Google ملف تعريف الارتباط DART لعرض إعلانات مناسبة لك بناءً على زيارتك لموقعنا ومواقع أخرى على الإنترنت. يمكنك تعطيل استخدام ملف DART عبر زيارة سياسة الخصوصية لشبكة إعلانات ومحتوى Google على الرابط: https://policies.google.com/technologies/ads</p>
+          <p>مزودو الطرف الثالث، بما في ذلك Google، يستخدمون ملفات تعريف الارتباط لعرض إعلانات بناءً على زيارات المستخدم السابقة لموقعنا.</p>
+
+          <h2 className="text-xl font-bold text-white">4. كيف نستخدم المعلومات</h2>
+          <p>نستخدم المعلومات التي نجمعها من أجل: تحسين موقعنا، تحسين تجربة البحث، تحليل كيفية استخدام الموقع، وإرسال رسائل بريد إلكتروني دورية فقط في حال تواصلت معنا عبر البريد.</p>
+
+          <h2 className="text-xl font-bold text-white">5. حماية المعلومات</h2>
+          <p>نحن نطبق إجراءات أمنية مناسبة لحماية معلوماتك من الوصول غير المصرح به. الموقع يستخدم بروتوكول HTTPS المشفر.</p>
+
+          <h2 className="text-xl font-bold text-white">6. الروابط الخارجية</h2>
+          <p>موقعنا يحتوي على روابط لمواقع أكاديمية خارجية (مثل روابط الـ PDF من OpenAlex). نحن غير مسؤولين عن سياسات الخصوصية في تلك المواقع وننصحك بمراجعة سياساتها.</p>
+
+          <h2 className="text-xl font-bold text-white">7. خصوصية الأطفال</h2>
+          <p>موقعنا غير موجه للأطفال دون سن 13 عاماً. نحن لا نجمع عن قصد أي معلومات شخصية من الأطفال. إذا كنت أباً واكتشفت أن طفلك قدم معلومات لنا، يرجى التواصل معنا وسنقوم بحذفها فوراً.</p>
+
+          <h2 className="text-xl font-bold text-white">8. الموافقة</h2>
+          <p>باستخدامك لموقعنا، فإنك توافق على سياسة الخصوصية الخاصة بنا.</p>
+
+          <h2 className="text-xl font-bold text-white">9. التغييرات على السياسة</h2>
+          <p>قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر. سيتم نشر أي تغييرات هنا مع تحديث تاريخ آخر تحديث في الأعلى.</p>
+
+          <h2 className="text-xl font-bold text-white">10. اتصل بنا</h2>
+          <p>إذا كان لديك أي استفسار حول سياسة الخصوصية، يمكنك التواصل معنا عبر البريد الإلكتروني الوحيد الخاص بالموقع:</p>
+          <p className="text-white font-bold">abdmazn55@gmail.com</p>
         </div>
       </div>
     </main>
