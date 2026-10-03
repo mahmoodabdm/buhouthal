@@ -78,11 +78,9 @@ export default function Page() {
       <section className="flex-1 flex flex-col items-center justify-center text-center px-6 py-10">
         <div className="bg-white/5 border border-white/10 text-cyan-300 text-xs px-2.5 py-1 rounded-full mb-3">بحث مباشر في 250,387,000 ورقة</div>
         <h1 className="text-4xl md:text-5xl font-bold leading-tight">ابحث في أكبر<br /><span className="text-cyan-300">مكتبة أكاديمية مفتوحة</span></h1>
-
         <div style={{width:'100%', maxWidth:'584px', margin:'24px auto 0 auto'}}>
           <SearchBarGoogle />
         </div>
-
         <p className="text-xs text-white/30 mt-2">OpenAlex API مباشرة</p>
       </section>
 
@@ -95,23 +93,6 @@ export default function Page() {
           })}
         </div>
       </section>
-
-      {/* هذا الفوتر الجديد اللي راح يظهر على الشاشة */}
-      <footer className="border-t border-white/10 py-6 text-center px-6 bg-[#05071a]">
-        <div className="flex justify-center gap-6 mb-3 text-sm">
-          <Link href="/privacy" className="underline hover:text-white text-white/80 font-bold">سياسة الخصوصية</Link>
-          <Link href="/contact" className="underline hover:text-white text-white/80 font-bold">اتصل بنا</Link>
-          <Link href="/about" className="underline hover:text-white text-white/60">من نحن</Link>
-        </div>
-        <footer className="border-t border-white/10 py-6 text-center px-6 bg-[#05071a]">
-  <div className="flex justify-center gap-6 mb-3 text-sm">
-    <Link href="/privacy" className="underline hover:text-white text-white/80 font-bold">سياسة الخصوصية</Link>
-    <Link href="/contact" className="underline hover:text-white text-white/80 font-bold">اتصل بنا</Link>
-    <Link href="/about" className="underline hover:text-white text-white/60">من نحن</Link>
-  </div>
-  <p className="text-white/40 text-xs">abdmazn55@gmail.com</p>
-  <div className="max-w-5xl mx-auto mt-3"><AdBanner slotId="footer" label="أسفل" /></div>
-  <p className="text- text-white/20 mt-2">© 2026 BuhouthAI - جميع الحقوق محفوظة</p>
     </main>
   );
 }
