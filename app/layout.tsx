@@ -1,33 +1,31 @@
-import type { Metadata } from "next";
-import { Cairo } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/Footer";
+import Link from "next/link";
+import AdBanner from "../components/AdBanner";
 
-const cairo = Cairo({ subsets: ["arabic"], display: "swap" });
-
-export const metadata: Metadata = {
-  title: "BuhouthAI - بحوث علمية جاهزة PDF | بحث علمي | باحث",
-  description: "محرك بحث علمي مجاني للبحوث العلمية وبحوث جاهزة PDF مع تحميل مباشر. ابحث في أكثر من 250 مليون بحث علمي من OpenAlex وحمل الـ PDF مجانا. أفضل بديل لجوجل سكولار للطلاب والباحثين العرب.",
-  keywords: ["بحوث علمية", "بحوث جاهزة PDF", "بحث علمي", "باحث", "بحوث جاهزة", "تحميل بحوث PDF", "موقع بحوث علمية"],
-  authors: [{ name: "BuhouthAI" }],
-  openGraph: {
-    title: "BuhouthAI - بحوث علمية جاهزة PDF | بحث علمي",
-    description: "ابحث وحمل أكثر من 250 مليون بحث علمي وبحوث جاهزة PDF مجانا",
-    type: "website",
-    locale: "ar_IQ",
-  },
+export const metadata = {
+  title: "BuhouthAI - باحث علمي جاهز",
+  description: "ابحث في 250 مليون ورقة بحثية",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ar" dir="rtl">
-      <body className={cairo.className}>
+      <body className="bg-[#05071a]">
         {children}
-        <Footer />
+
+        {/* الفوتر الوحيد والصحيح لكل الموقع */}
+        <footer className="border-t border-white/10 py-6 text-center px-6 bg-[#05071a]">
+          <div className="flex justify-center gap-6 mb-3 text-sm">
+            <Link href="/privacy" className="underline hover:text-white text-white/80 font-bold">سياسة الخصوصية</Link>
+            <Link href="/contact" className="underline hover:text-white text-white/80 font-bold">اتصل بنا</Link>
+            <Link href="/about" className="underline hover:text-white text-white/60">من نحن</Link>
+          </div>
+          <p className="text-white/40 text-xs">abdmazn55@gmail.com</p>
+          <div className="max-w-5xl mx-auto mt-3">
+            <AdBanner slotId="footer" label="أسفل" />
+          </div>
+          <p className="text- text-white/20 mt-3">© 2026 BuhouthAI - جميع الحقوق محفوظة</p>
+        </footer>
       </body>
     </html>
   );
