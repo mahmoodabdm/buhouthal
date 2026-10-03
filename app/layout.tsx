@@ -30,3 +30,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+<Link href="/articles" className="underline text-cyan-300 font-bold">المقالات</Link>
