@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+import Footer from "@/components/Footer" // ضيف هذا فوق
+
+// وجوا الـ return بعد {children} ضيف:
+<Footer />
 import { Cairo } from "next/font/google";
 import "./globals.css";
 
