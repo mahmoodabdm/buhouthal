@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
-import Footer from "@/components/Footer" // ضيف هذا فوق
-
-// وجوا الـ return بعد {children} ضيف:
-<Footer />
 import { Cairo } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/Footer";
 
 const cairo = Cairo({ subsets: ["arabic"], display: "swap" });
 
@@ -28,7 +25,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ar" dir="rtl">
-      <body className={cairo.className}>{children}</body>
+      <body className={cairo.className}>
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
