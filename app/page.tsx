@@ -112,10 +112,6 @@ export default function Page() {
   <p className="text-white/40 text-xs">abdmazn55@gmail.com</p>
   <div className="max-w-5xl mx-auto mt-3"><AdBanner slotId="footer" label="أسفل" /></div>
   <p className="text- text-white/20 mt-2">© 2026 BuhouthAI - جميع الحقوق محفوظة</p>
-</footer>
-        <div className="max-w-5xl mx-auto mt-3"><AdBanner slotId="footer" label="أسفل" /></div>
-        <p className="text- text-white/20 mt-2">© 2026 BuhouthAI - جميع الحقوق محفوظة</p>
-      </footer>
     </main>
   );
 }
