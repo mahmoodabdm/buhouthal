@@ -1,6 +1,7 @@
 import "./globals.css";
 import Link from "next/link";
 import AdBanner from "../components/AdBanner";
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata = {
   title: "BuhouthAI - باحث علمي جاهز",
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </div>
           <p className="text- text-white/20 mt-3">© 2026 BuhouthAI - جميع الحقوق محفوظة</p>
         </footer>
+        <Analytics />
       </body>
     </html>
   );
