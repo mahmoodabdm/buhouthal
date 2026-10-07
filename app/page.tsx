@@ -70,7 +70,10 @@ export default function Page() {
     <main className="min-h-screen bg-[#05071a] text-white flex flex-col">
       <header className="flex items-center justify-between py-3 max-w-7xl mx-auto px-6 w-full">
         <Link href="/" className="font-bold">Buhouth<span className="text-cyan-400">AI</span></Link>
-        <button onClick={() => setOpen(true)} className="bg-white text-black px-4 py-1.5 rounded-full font-bold">دخول</button>
+        <div className="flex items-center gap-3">
+          <Link href="/articles" className="bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 px-4 py-1.5 rounded-full font-bold text-sm hover:bg-cyan-500/20">المقالات 📚</Link>
+          <button onClick={() => setOpen(true)} className="bg-white text-black px-4 py-1.5 rounded-full font-bold">دخول</button>
+        </div>
       </header>
       <LoginModal isOpen={open} onClose={() => setOpen(false)} />
       <div className="max-w-5xl mx-auto w-full px-6 mt-1"><AdBanner slotId="top" label="أعلى" /></div>
@@ -82,6 +85,8 @@ export default function Page() {
           <SearchBarGoogle />
         </div>
         <p className="text-xs text-white/30 mt-2">OpenAlex API مباشرة</p>
+        
+        <Link href="/articles" className="mt-6 text-cyan-300 underline text-sm">تصفح 24 دليل للبحوث الأكاديمية →</Link>
       </section>
 
       <div className="max-w-5xl mx-auto w-full px-6"><AdBanner slotId="middle" label="وسط" /></div>
