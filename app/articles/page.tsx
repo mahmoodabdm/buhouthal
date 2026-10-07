@@ -1,28 +1,28 @@
-import Link from "next/link";
-import fs from "fs";
-import path from "path";
-
 export default function ArticlesPage() {
-  const articlesPath = path.join(process.cwd(), "app/articles");
-  const folders = fs.readdirSync(articlesPath).filter((name) => {
-    const fullPath = path.join(articlesPath, name);
-    return fs.statSync(fullPath).isDirectory() && name!== "[slug]";
-  });
+  const articles = [
+    "احصاء-طلبة-في-البحوث",
+    "ادوات-الطالب-الجامعي",
+    "اعادة-الصياغة-الاكاديمية",
+    "افضل-محركات-البحث-الاكاديمي",
+    "الفرق-بين-الاستبيان-والمقابلة",
+    "الفرق-بين-البحث-والرسالة",
+    "تحويل-PDF-الى-Word",
+    "توثيق-المراجع-APA",
+    "خطوات-كتابة-بحث-التخرج"
+  ];
 
   return (
-    <div className="container mx-auto p-8">
-      <h1 className="text-3xl font-bold mb-6">جميع المقالات</h1>
-      <div className="grid gap-4">
-        {folders.map((slug) => (
-          <Link
-            key={slug}
-            href={`/articles/${slug}`}
-            className="p-4 border rounded-lg hover:bg-gray-50"
-          >
-            {slug.replace(/-/g, " ")}
-          </Link>
+    <main className="p-8">
+      <h1 className="text-3xl font-bold mb-8">المقالات</h1>
+      <ul className="space-y-3">
+        {articles.map(slug => (
+          <li key={slug}>
+            <a href={`/articles/${slug}`} className="text-blue-600 hover:underline">
+              {slug.replace(/-/g, ' ')}
+            </a>
+          </li>
         ))}
-      </div>
-    </div>
-  );
+      </ul>
+    </main>
+  )
 }
