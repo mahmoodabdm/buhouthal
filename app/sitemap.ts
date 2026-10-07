@@ -1,19 +1,14 @@
-import { MetadataRoute } from 'next'
-import fs from 'fs'
-import path from 'path'
-
+import { MetadataRoute } from 'next';
+import { articlesData } from './articles/[slug]/articlesData';
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://buhouthal.vercel.app'
-  const articlesPath = path.join(process.cwd(), 'app', 'articles')
-const slugs = fs.readdirSync(articlesPath).filter(name => {    const full = path.join(articlesPath, name)
-    return fs.statSync(full).isDirectory() && name!== '[slug]'
-  })
-
+  const baseUrl = 'https://buhouthal.com';
+  const articles = Object.keys(articlesData).map((slug) => ({
+    url: `${baseUrl}/articles/${encodeURIComponent(slug)}`,
+    lastModified: new Date(),
+  }));
   return [
     { url: baseUrl, lastModified: new Date() },
-   ...slugs.map(slug => ({
-      url: `${baseUrl}/articles/${slug}`,
-      lastModified: new Date(),
-    }))
-  ]
+    { url: `${baseUrl}/articles`, lastModified: new Date() },
+    ...articles,
+  ];
 }
