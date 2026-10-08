@@ -6,10 +6,10 @@ export const metadata: Metadata = {
     default: "بحوثي - منصة البحوث الأكاديمية",
     template: "%s | بحوثي",
   },
-  metadataBase: new URL('https://buhouthal.com'),
+  metadataBase: new URL('https://buhouthal.vercel.app'),
   keywords: ["بحوث", "بحث تخرج", "بحوث جامعية", "ذكاء اصطناعي", "BuhouthAI", "ملخص بحوث"],
   openGraph: {
-    url: 'https://buhouthal.com',
+    url: 'https://buhouthal.vercel.app',
     siteName: 'بحوثي',
     locale: 'ar_AR',
     type: 'website',
