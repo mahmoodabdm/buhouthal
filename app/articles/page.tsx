@@ -1,40 +1,39 @@
-import Link from "next/link";
-import { articlesData } from "./[slug]/articlesData";
+import { notFound } from "next/navigation";
+import { articlesData } from "./articlesData";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "مقالات البحوث الأكاديمية - 24 دليل شامل",
-  description: "تصفح 24 دليل شامل لكتابة البحوث الأكاديمية، من اختيار العنوان حتى المناقشة، مع أدوات ذكاء اصطناعي مجانية.",
-  alternates: {
-    canonical: '/articles',
-  },
-  openGraph: {
-    title: "مقالات البحوث الأكاديمية",
-    description: "24 دليل شامل لكتابة بحثك باحترافية",
-    url: '/articles',
-    type: 'website',
-  },
-};
+type Props = { params: { slug: string } };
 
-export default function ArticlesPage() {
+function findArticle(slug: string) {
+  const decoded = decodeURIComponent(slug).trim();
+  if (articlesData[decoded]) return articlesData[decoded];
+  const lower = decoded.toLowerCase();
+  const k = Object.keys(articlesData).find(x => x.toLowerCase() === lower);
+  return k? articlesData[k] : null;
+}
+
+function formatContent(text: string) {
+  let fixed = text.replace(/##/g, '\n##');
+  return fixed.split('\n').map(l=>l.trim()).filter(Boolean).map(line=>{
+    if(line.startsWith('## ')) return `<h2 class="text-2xl font-bold mt-8 mb-4">${line.replace('## ','')}</h2>`;
+    return `<p class="my-4 leading-8">${line.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')}</p>`;
+  }).join('');
+}
+
+export default function Page({ params }: Props) {
+  const article = findArticle(params.slug);
+  if (!article) return notFound();
   return (
-    <main dir="rtl" className="min-h-screen bg-[#05071a] text-white p-8">
-      <div className="max-w-5xl mx-auto">
-        <h1 className="text-4xl font-bold mb-2">مقالات البحوث الأكاديمية</h1>
-        <p className="text-white/60 mb-10">24 دليل شامل لكتابة بحثك باحترافية</p>
-        <div className="grid md:grid-cols-2 gap-4">
-          {Object.entries(articlesData).map(([slug, article]: any) => (
-            <Link 
-              key={slug} 
-              href={`/articles/${encodeURIComponent(slug)}`} 
-              className="p-5 border border-white/10 rounded-xl hover:bg-white/5 transition"
-            >
-              <h3 className="font-bold text-lg mb-2">{article.title}</h3>
-              <p className="text-sm text-white/50 line-clamp-2">{article.description}</p>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </main>
+    <div className="max-w-3xl mx-auto p-6 bg-white mt-6 rounded-xl" dir="rtl">
+      <h1 className="text-3xl font-bold mb-6">{article.title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: formatContent(article.content) }} />
+    </div>
   );
+}
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const a = findArticle(params.slug);
+  return a? { title: a.title, description: a.description } : {};
+}
+export function generateStaticParams() {
+  return Object.keys(articlesData).map(slug => ({ slug }));
 }
