@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { articlesData } from "./articlesData";
+import { articlesData } from "../articlesData";
 import type { Metadata } from "next";
 
 type Props = { params: { slug: string } };
@@ -36,9 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const result = findArticle(params.slug);
   if (!result) return {};
   const { article, canonicalSlug } = result;
-
   const canonicalUrl = `https://buhouthal.vercel.app/articles/${encodeURIComponent(canonicalSlug)}`;
-
   return {
     title: article.title,
     description: article.description,
