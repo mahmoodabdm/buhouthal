@@ -1,39 +1,33 @@
-import "./globals.css";
-import type { Metadata } from "next";
+// app/layout.tsx
+import type { Metadata } from 'next'
+import './globals.css'
 
 export const metadata: Metadata = {
-  title: {
-    default: "بحوثي - منصة البحوث الأكاديمية",
-    template: "%s | بحوثي",
-  },
   metadataBase: new URL('https://buhouthal.vercel.app'),
-  keywords: ["بحوث", "بحث تخرج", "بحوث جامعية", "ذكاء اصطناعي", "BuhouthAI", "ملخص بحوث"],
+  title: {
+    default: 'BuhouthAI - أكبر مكتبة أكاديمية مفتوحة',
+    template: '%s | BuhouthAI'
+  },
+  description: 'ابحث في أكثر من 250 مليون ورقة علمية مجانا. مكتبة أكاديمية مفتوحة مع استلال وتلخيص بالذكاء الاصطناعي.',
+  verification: {
+    google: 'ضع كود التحقق من Search Console هنا',
+  },
   openGraph: {
-    url: 'https://buhouthal.vercel.app',
-    siteName: 'بحوثي',
-    locale: 'ar_AR',
     type: 'website',
+    locale: 'ar_IQ',
+    url: 'https://buhouthal.vercel.app',
+    siteName: 'BuhouthAI',
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-    },
-  },
-};
+  }
+}
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ar" dir="rtl">
-      <body className="min-h-screen bg-[#f8fafc] text-slate-900 antialiased">
-        {children}
-      </body>
+      <body className="bg-[#0a0e27] text-white antialiased">{children}</body>
     </html>
-  );
+  )
 }
