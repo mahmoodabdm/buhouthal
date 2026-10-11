@@ -23,11 +23,10 @@ function formatContent(text: string) {
 export default function Page({ params }: Props) {
   const result = findArticle(params.slug);
   if (!result) return notFound();
-  const { article } = result;
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white mt-6 rounded-xl" dir="rtl">
-      <h1 className="text-3xl font-bold mb-6">{article.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: formatContent(article.content) }} />
+      <h1 className="text-3xl font-bold mb-6">{result.article.title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: formatContent(result.article.content) }} />
     </div>
   );
 }
@@ -35,19 +34,12 @@ export default function Page({ params }: Props) {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const result = findArticle(params.slug);
   if (!result) return {};
-  const { article, canonicalSlug } = result;
-  const canonicalUrl = `https://buhouthal.vercel.app/articles/${encodeURIComponent(canonicalSlug)}`;
+  const canonicalUrl = `https://buhouthal.vercel.app/articles/${encodeURIComponent(result.canonicalSlug)}`;
   return {
-    title: article.title,
-    description: article.description,
-    alternates: {
-      canonical: canonicalUrl,
-    },
-    openGraph: {
-      title: article.title,
-      description: article.description,
-      url: canonicalUrl,
-    }
+    title: result.article.title,
+    description: result.article.description,
+    alternates: { canonical: canonicalUrl },
+    openGraph: { title: result.article.title, description: result.article.description, url: canonicalUrl },
   };
 }
 
