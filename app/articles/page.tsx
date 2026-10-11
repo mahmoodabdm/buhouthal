@@ -1,48 +1,18 @@
-import { notFound } from "next/navigation";
-import { articlesData } from "../articlesData";
-import type { Metadata } from "next";
+import Link from "next/link";
+import { articlesData } from "./articlesData";
 
-type Props = { params: { slug: string } };
-
-function findArticle(slug: string) {
-  const decoded = decodeURIComponent(slug).trim();
-  if (articlesData[decoded]) return { article: articlesData[decoded], canonicalSlug: decoded };
-  const lower = decoded.toLowerCase();
-  const k = Object.keys(articlesData).find(x => x.toLowerCase() === lower);
-  return k? { article: articlesData[k], canonicalSlug: k } : null;
-}
-
-function formatContent(text: string) {
-  let fixed = text.replace(/##/g, '\n##');
-  return fixed.split('\n').map(l=>l.trim()).filter(Boolean).map(line=>{
-    if(line.startsWith('## ')) return `<h2 class="text-2xl font-bold mt-8 mb-4">${line.replace('## ','')}</h2>`;
-    return `<p class="my-4 leading-8">${line.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')}</p>`;
-  }).join('');
-}
-
-export default function Page({ params }: Props) {
-  const result = findArticle(params.slug);
-  if (!result) return notFound();
+export default function ArticlesPage() {
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white mt-6 rounded-xl" dir="rtl">
-      <h1 className="text-3xl font-bold mb-6">{result.article.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: formatContent(result.article.content) }} />
+    <div className="max-w-4xl mx-auto p-6 mt-6" dir="rtl">
+      <h1 className="text-3xl font-bold mb-6">جميع المقالات</h1>
+      <div className="grid gap-4">
+        {Object.entries(articlesData).map(([slug, article]) => (
+          <Link key={slug} href={`/articles/${encodeURIComponent(slug)}`} className="p-4 bg-white rounded-xl shadow hover:shadow-md block">
+            <h2 className="font-bold text-lg">{article.title}</h2>
+            <p className="text-gray-600 text-sm mt-2">{article.description}</p>
+          </Link>
+        ))}
+      </div>
     </div>
   );
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const result = findArticle(params.slug);
-  if (!result) return {};
-  const canonicalUrl = `https://buhouthal.vercel.app/articles/${encodeURIComponent(result.canonicalSlug)}`;
-  return {
-    title: result.article.title,
-    description: result.article.description,
-    alternates: { canonical: canonicalUrl },
-    openGraph: { title: result.article.title, description: result.article.description, url: canonicalUrl },
-  };
-}
-
-export function generateStaticParams() {
-  return Object.keys(articlesData).map(slug => ({ slug }));
 }
