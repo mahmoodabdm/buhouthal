@@ -6,10 +6,10 @@ type Props = { params: { slug: string } };
 
 function findArticle(slug: string) {
   const decoded = decodeURIComponent(slug).trim();
-  if (articlesData[decoded]) return articlesData[decoded];
+  if (articlesData[decoded]) return { article: articlesData[decoded], canonicalSlug: decoded };
   const lower = decoded.toLowerCase();
   const k = Object.keys(articlesData).find(x => x.toLowerCase() === lower);
-  return k? articlesData[k] : null;
+  return k? { article: articlesData[k], canonicalSlug: k } : null;
 }
 
 function formatContent(text: string) {
@@ -21,8 +21,9 @@ function formatContent(text: string) {
 }
 
 export default function Page({ params }: Props) {
-  const article = findArticle(params.slug);
-  if (!article) return notFound();
+  const result = findArticle(params.slug);
+  if (!result) return notFound();
+  const { article } = result;
   return (
     <div className="max-w-3xl mx-auto p-6 bg-white mt-6 rounded-xl" dir="rtl">
       <h1 className="text-3xl font-bold mb-6">{article.title}</h1>
@@ -30,10 +31,28 @@ export default function Page({ params }: Props) {
     </div>
   );
 }
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const a = findArticle(params.slug);
-  return a? { title: a.title, description: a.description } : {};
+  const result = findArticle(params.slug);
+  if (!result) return {};
+  const { article, canonicalSlug } = result;
+
+  const canonicalUrl = `https://buhouthal.vercel.app/articles/${encodeURIComponent(canonicalSlug)}`;
+
+  return {
+    title: article.title,
+    description: article.description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title: article.title,
+      description: article.description,
+      url: canonicalUrl,
+    }
+  };
 }
+
 export function generateStaticParams() {
   return Object.keys(articlesData).map(slug => ({ slug }));
 }
